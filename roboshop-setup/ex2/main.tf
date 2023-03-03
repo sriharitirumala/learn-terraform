@@ -27,3 +27,6 @@ variable "instances" {
   }
 }
 
+output "public-ip" {
+  value = aws_instance.Frontend.*.public_ip
+}
