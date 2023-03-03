@@ -6,7 +6,7 @@ data "aws_ami" "ami" {
 
 resource "aws_instance" "instances" {
   for_each      = var.instances
-  ami           = data.aws.ami.ami.image_id
+  ami           = data.aws_ami.ami.image_id
   instance_type = each.value["type"]
   vpc_security_group_ids = ["sg-0f914773417860a28"]
   tags = {
@@ -27,6 +27,3 @@ variable "instances" {
   }
 }
 
-output "public-ip" {
-  value = aws_instance.Frontend.*.public_ip
-}
