@@ -9,6 +9,9 @@ resource "aws_instance" "Frontend" {
   ami           = data.aws.ami.ami.image_id
   instance_type = "t3.micro"
   vpc_security_group_ids = ["sg-0f914773417860a28"]
+  tags = {
+    Name = var.instances [count.index]
+  }
 }
 
 variable "instances" {
