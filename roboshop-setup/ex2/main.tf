@@ -4,28 +4,21 @@ data "aws_ami" "ami" {
   owners = ["119044227534"]
 }
 
-resource "aws_instance" "instances" {
-  for_each      = var.instances
-  ami           = data.aws_ami.ami.image_id
-  instance_type = each.value["type"]
+
+resource "aws_instance" "frontend" {
+  count                  = length(var.instances)
+  ami                    = data.aws_ami.ami.image_id
+  instance_type          = "t3.micro"
   vpc_security_group_ids = ["sg-0f914773417860a28"]
   tags = {
-    name = each.value["name"]
+    Name = var.instances[count.index]
   }
 }
 
 variable "instances" {
-  default = {
-    catalogue = {
-      name = "catalogue"
-      type = "t3.micro"
-    }
-    cart = {
-      name = "cart"
-      type = "t3.small"
-      }
-  }
+  default = ["cart", "catalogue", "user", "payment", "shipping"]
 }
-output "ec2" {
-  value = [for k, v in aws_instance.instances : "${k} - ${v.public_ip}"]
+
+output "public-ip" {
+  value = aws_instance.frontend.*.public_ip
 }
