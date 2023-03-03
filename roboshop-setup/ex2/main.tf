@@ -10,7 +10,7 @@ resource "aws_instance" "instances" {
   instance_type = each.value["type"]
   vpc_security_group_ids = ["sg-0f914773417860a28"]
   tags = {
-    Name = each.value["name"]
+    name = each.value["name"]
   }
 }
 
