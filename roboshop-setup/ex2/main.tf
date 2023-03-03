@@ -5,6 +5,7 @@ data "aws_ami" "ami" {
 }
 
 
+
 resource "aws_instance" "frontend" {
   count                  = length(var.instances)
   ami                    = data.aws_ami.ami.image_id
