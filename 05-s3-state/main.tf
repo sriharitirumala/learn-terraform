@@ -1,7 +1,7 @@
 terraform {
   backend "s3" {
-    bucket = "terraform-b71-services-site"
-    key = "04-s3-state/terraform.tfstate"
+    bucket = "terraformb71services.site"
+    key = "05-s3-state/terraform.tfstate"
     region = "us-east-1"
   }
 }
