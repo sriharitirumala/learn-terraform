@@ -15,6 +15,6 @@ resource "aws_spot_instance_request" "node2" {
   vpc_security_group_ids = ["sg-0f914773417860a28"]
 
   tags = {
-    Name= "prom-test-server"
+    Name= "prom-test-node"
   }
 }
