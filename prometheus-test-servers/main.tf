@@ -1,5 +1,5 @@
 resource "aws_spot_instance_request" "node1" {
-  ami                    = "ami-0194f9cb4cd268dc5"
+  ami                    = "ami-03265a0778a880afb"
   instance_type          = "t3.micro"
   vpc_security_group_ids = ["sg-0283b29d1ec816853"]
   wait_for_fulfillment   = true
@@ -16,7 +16,7 @@ resource "aws_ec2_tag" "node1" {
 }
 
 resource "aws_spot_instance_request" "node2" {
-  ami                    = "ami-0194f9cb4cd268dc5"
+  ami                    = "ami-03265a0778a880afb"
   instance_type          = "t3.micro"
   vpc_security_group_ids = ["sg-0283b29d1ec816853"]
   wait_for_fulfillment   = true
