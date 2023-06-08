@@ -1,7 +1,7 @@
 variable "test" {
   default = {
     "catalogue" = {
-      "private_ip" = "172.31.5.212"
+      "private_ip" = "172.31.15.212"
     }
     "user" = {
       "private_ip" = "172.31.12.137"
@@ -10,5 +10,5 @@ variable "test" {
 }
 
 output "test" {
-  value = var.test["cart"].private_ip
+  value = var.test["catalogue"].private_ip
 }
