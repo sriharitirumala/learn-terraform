@@ -10,5 +10,5 @@ variable "test" {
 }
 
 output "test" {
-  value = var.test[("catalogue", "cart")].private_ip
+  value = var.test["cart"].private_ip
 }
